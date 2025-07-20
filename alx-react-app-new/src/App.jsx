@@ -4,7 +4,8 @@ import UserProfile from './components/UserProfile';
 import Header from './components/Header';
 import MainContent from './components/MainContent';
 import Footer from './components/Footer';
-import Counter from './components/Counter'; // <--- NEW: Import the Counter component
+import Counter from './components/Counter';
+import UserForm from './components/UserForm'; // <--- NEW: Import the UserForm component
 
 function App() {
   return (
@@ -12,7 +13,8 @@ function App() {
       <Header />
       <MainContent />
       <UserProfile name="Alice" age={25} bio="Loves hiking and photography" />
-      <Counter /> {/* <--- NEW: Include the Counter component here */}
+      <Counter />
+      <UserForm /> {/* <--- NEW: Include the UserForm component here */}
       <Footer />
     </div>
   );
