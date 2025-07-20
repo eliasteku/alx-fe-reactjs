@@ -1,18 +1,17 @@
 // my-company/src/App.jsx
 import React from 'react';
-// NEW: Import routing components from react-router-dom
+// Import routing components from react-router-dom
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-// NEW: Import your page components
+// Import your page components
 import Home from './Home';
 import About from './About';
 import Services from './Services';
 import Contact from './Contact';
 
-// NEW: We will create this Navbar component next
-// For now, we'll just include it in the structure
-import Navbar from './Navbar'; 
-import Footer from './Footer'; // NEW: Optional - Adding a Footer component
+// CORRECTED PATH: Import Navbar from the components folder
+import Navbar from './components/Navbar'; 
+import Footer from './Footer'; // Optional - Adding a Footer component
 
 function App() {
   return (
