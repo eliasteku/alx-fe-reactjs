@@ -1,6 +1,6 @@
 // C:\Users\Elias\Desktop\alx-fe-reactjs\recipe-sharing-app\src\components\AddRecipeForm.jsx
 import { useState } from 'react';
-import { useRecipeStore } from '../recipeStore';
+import { useRecipeStore } from './recipeStore';
 
 const AddRecipeForm = () => {
   const addRecipe = useRecipeStore(state => state.addRecipe);

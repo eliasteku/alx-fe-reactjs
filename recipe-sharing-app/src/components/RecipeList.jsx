@@ -1,5 +1,5 @@
 // C:\Users\Elias\Desktop\alx-fe-reactjs\recipe-sharing-app\src\components\RecipeList.jsx
-import { useRecipeStore } from '../recipeStore';
+import { useRecipeStore } from './recipeStore';
 
 const RecipeList = () => {
   const recipes = useRecipeStore(state => state.recipes);

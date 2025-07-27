@@ -1,7 +1,7 @@
 // C:\Users\Elias\Desktop\alx-fe-reactjs\recipe-sharing-app\src\App.jsx
 import AddRecipeForm from './components/AddRecipeForm';
 import RecipeList from './components/RecipeList';
-import { useRecipeStore } from './recipeStore';
+import { useRecipeStore } from './components/recipeStore';
 import './App.css'; // Keep if you have this file, otherwise remove or create
 
 function App() {
