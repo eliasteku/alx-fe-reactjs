@@ -4,14 +4,16 @@ import AddRecipeForm from './components/AddRecipeForm';
 import RecipeList from './components/RecipeList';
 import RecipeDetails from './components/RecipeDetails';
 import EditRecipeForm from './components/EditRecipeForm';
-import { useRecipeStore } from './components/recipeStore'; // Corrected path for recipeStore
-import { useEffect } from 'react'; // Import useEffect for initial data
+import SearchBar from './components/SearchBar'; // Import the new SearchBar
+import { useRecipeStore } from './components/recipeStore';
+import { useEffect } from 'react';
 
-import './App.css'; // Keep if you have this file, otherwise remove or create
+import './App.css';
 
 function App() {
-  // Optional: Initialize some dummy recipes for testing if needed
   const setRecipes = useRecipeStore(state => state.setRecipes);
+  const filterRecipes = useRecipeStore(state => state.filterRecipes); // Get filter action
+
   useEffect(() => {
     // Only set if recipes are empty to avoid resetting on every render
     if (useRecipeStore.getState().recipes.length === 0) {
@@ -21,14 +23,21 @@ function App() {
         { id: 3, title: 'Vegetable Lasagna', description: 'Layers of pasta, rich tomato sauce, creamy ricotta, and a medley of fresh vegetables, baked to golden perfection.' }
       ]);
     }
-  }, [setRecipes]);
+    // Ensure initial filtering happens when component mounts or recipes are set
+    filterRecipes();
+  }, [setRecipes, filterRecipes]);
+
 
   return (
     <Router>
       <div style={{ fontFamily: 'Arial, sans-serif', padding: '20px' }}>
-        <nav style={{ marginBottom: '20px', borderBottom: '1px solid #eee', paddingBottom: '10px' }}>
-          <Link to="/" style={{ marginRight: '15px', textDecoration: 'none', color: '#007bff', fontWeight: 'bold' }}>Home</Link>
-          <Link to="/add-recipe" style={{ textDecoration: 'none', color: '#007bff', fontWeight: 'bold' }}>Add New Recipe</Link>
+        <nav style={{ marginBottom: '20px', borderBottom: '1px solid #eee', paddingBottom: '10px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div>
+            <Link to="/" style={{ marginRight: '15px', textDecoration: 'none', color: '#007bff', fontWeight: 'bold' }}>Home</Link>
+            <Link to="/add-recipe" style={{ textDecoration: 'none', color: '#007bff', fontWeight: 'bold' }}>Add New Recipe</Link>
+          </div>
+          {/* Place SearchBar prominently */}
+          <SearchBar />
         </nav>
 
         <Routes>
@@ -36,7 +45,7 @@ function App() {
           <Route path="/add-recipe" element={<AddRecipeForm />} />
           <Route path="/recipe/:id" element={<RecipeDetails />} />
           <Route path="/edit-recipe/:id" element={<EditRecipeForm />} />
-          <Route path="*" element={<h2>404 - Page Not Found</h2>} /> {/* Catch-all for undefined routes */}
+          <Route path="*" element={<h2>404 - Page Not Found</h2>} />
         </Routes>
       </div>
     </Router>
