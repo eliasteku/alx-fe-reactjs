@@ -1,10 +1,12 @@
-import Header from './components/Header'   // <--- import statement
+import Header from './components/Header'
+import { testApi } from './services/api'   // import from services
 
 function App() {
   return (
     <div>
       <h1>GitHub User Search App</h1>
-      <Header />  {/* use the imported component */}
+      <Header />
+      <p>{testApi()}</p>
     </div>
   )
 }
