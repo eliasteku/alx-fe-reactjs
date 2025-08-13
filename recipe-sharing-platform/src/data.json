@@ -3,18 +3,45 @@
     "id": 1,
     "title": "Spaghetti Carbonara",
     "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
-    "image": "https://images.unsplash.com/photo-1612876378413-546055d7b53a?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    "image": "https://images.unsplash.com/photo-1612876378413-546055d7b53a?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "ingredients": [
+      "200g spaghetti",
+      "100g guanciale or pancetta",
+      "2 large eggs",
+      "50g Pecorino Romano cheese",
+      "Black pepper"
+    ],
+    "instructions": "1. Cook the spaghetti. 2. While the pasta is cooking, crisp the guanciale. 3. In a bowl, whisk the eggs and cheese. 4. Drain the pasta and toss with the guanciale, then quickly mix in the egg mixture to create a creamy sauce. 5. Season with black pepper and serve immediately."
   },
   {
     "id": 2,
     "title": "Chicken Tikka Masala",
     "summary": "Chunks of grilled chicken cooked in a smooth buttery & creamy tomato-based gravy.",
-    "image": "https://images.unsplash.com/photo-1596700078028-d14f4e1f7360?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    "image": "https://images.unsplash.com/photo-1596700078028-d14f4e1f7360?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "ingredients": [
+      "500g chicken breast",
+      "1 cup yogurt",
+      "2 tbsp tikka masala paste",
+      "1 onion, chopped",
+      "1 can (400g) crushed tomatoes",
+      "1/2 cup cream"
+    ],
+    "instructions": "1. Marinate chicken in yogurt and tikka masala paste. 2. Grill the chicken. 3. Sauté onions, add tomatoes and cream to make the sauce. 4. Add the chicken to the sauce and simmer."
   },
   {
     "id": 3,
     "title": "Vegetable Stir-Fry",
     "summary": "A quick and healthy stir-fry with a colorful mix of fresh vegetables.",
-    "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "ingredients": [
+      "1 head broccoli",
+      "1 red bell pepper",
+      "1 carrot",
+      "1 onion",
+      "2 cloves garlic",
+      "2 tbsp soy sauce",
+      "1 tbsp ginger, grated"
+    ],
+    "instructions": "1. Chop all vegetables. 2. Heat oil in a wok and sauté garlic and ginger. 3. Add vegetables and stir-fry for 5-7 minutes. 4. Add soy sauce and serve hot with rice."
   }
 ]
