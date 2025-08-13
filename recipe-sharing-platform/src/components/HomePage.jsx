@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom'; // <--- ADDED THIS IMPORT
 import recipesData from '../data.json';
 
 function HomePage() {
@@ -29,12 +30,14 @@ function HomePage() {
                 {recipe.title}
               </h2>
               <p className="text-gray-600 mb-4">{recipe.summary}</p>
-              <a
-                href={`/recipe/${recipe.id}`} // Placeholder for a detail page link
+              
+              {/* --- CHANGED THIS FROM <a> TO <Link> --- */}
+              <Link
+                to={`/recipe/${recipe.id}`}
                 className="inline-block px-6 py-2 text-sm font-semibold text-white bg-blue-600 rounded-full hover:bg-blue-700 transition-colors duration-300"
               >
                 View Recipe
-              </a>
+              </Link>
             </div>
           </div>
         ))}
