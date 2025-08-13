@@ -3,7 +3,7 @@ import { useState } from 'react';
 function AddRecipeForm() {
   const [title, setTitle] = useState('');
   const [ingredients, setIngredients] = useState('');
-  const [instructions, setInstructions] = useState('');
+  const [steps, setSteps] = useState(''); // <-- CHANGED 'instructions' to 'steps'
   const [validationErrors, setValidationErrors] = useState({});
 
   const validateForm = () => {
@@ -14,8 +14,8 @@ function AddRecipeForm() {
     if (!ingredients.trim()) {
       errors.ingredients = 'Ingredients are required';
     }
-    if (!instructions.trim()) {
-      errors.instructions = 'Instructions are required';
+    if (!steps.trim()) { // <-- CHANGED 'instructions' to 'steps'
+      errors.steps = 'Preparation steps are required';
     }
     setValidationErrors(errors);
     return Object.keys(errors).length === 0;
@@ -25,13 +25,13 @@ function AddRecipeForm() {
     e.preventDefault();
     if (validateForm()) {
       // In a real application, you would send this data to an API
-      const newRecipe = { title, ingredients, instructions };
+      const newRecipe = { title, ingredients, steps }; // <-- CHANGED 'instructions' to 'steps'
       console.log('New Recipe Submitted:', newRecipe);
-
+      
       // Clear form after successful submission
       setTitle('');
       setIngredients('');
-      setInstructions('');
+      setSteps(''); // <-- CHANGED 'instructions' to 'steps'
       setValidationErrors({});
 
       alert('Recipe submitted successfully!');
@@ -94,21 +94,21 @@ function AddRecipeForm() {
 
           <div>
             <label
-              htmlFor="instructions"
+              htmlFor="steps" // <-- CHANGED 'instructions' to 'steps'
               className="block text-lg font-medium text-gray-700"
             >
               Preparation Steps
             </label>
             <textarea
-              id="instructions"
+              id="steps" // <-- CHANGED 'instructions' to 'steps'
               rows="6"
-              value={instructions}
-              onChange={(e) => setInstructions(e.target.value)}
+              value={steps} // <-- CHANGED 'instructions' to 'steps'
+              onChange={(e) => setSteps(e.target.value)} // <-- CHANGED 'instructions' to 'steps'
               className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
             ></textarea>
-            {validationErrors.instructions && (
+            {validationErrors.steps && ( // <-- CHANGED 'instructions' to 'steps'
               <p className="mt-1 text-sm text-red-500">
-                {validationErrors.instructions}
+                {validationErrors.steps}
               </p>
             )}
           </div>
