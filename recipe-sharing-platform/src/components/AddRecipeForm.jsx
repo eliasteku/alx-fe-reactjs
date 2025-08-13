@@ -3,36 +3,34 @@ import { useState } from 'react';
 function AddRecipeForm() {
   const [title, setTitle] = useState('');
   const [ingredients, setIngredients] = useState('');
-  const [steps, setSteps] = useState(''); // <-- CHANGED 'instructions' to 'steps'
-  const [validationErrors, setValidationErrors] = useState({});
+  const [steps, setSteps] = useState('');
+  const [errors, setErrors] = useState({}); // <-- CHANGED 'validationErrors' to 'errors'
 
   const validateForm = () => {
-    const errors = {};
+    const newErrors = {};
     if (!title.trim()) {
-      errors.title = 'Title is required';
+      newErrors.title = 'Title is required';
     }
     if (!ingredients.trim()) {
-      errors.ingredients = 'Ingredients are required';
+      newErrors.ingredients = 'Ingredients are required';
     }
-    if (!steps.trim()) { // <-- CHANGED 'instructions' to 'steps'
-      errors.steps = 'Preparation steps are required';
+    if (!steps.trim()) {
+      newErrors.steps = 'Preparation steps are required';
     }
-    setValidationErrors(errors);
-    return Object.keys(errors).length === 0;
+    setErrors(newErrors); // <-- CHANGED 'setValidationErrors' to 'setErrors'
+    return Object.keys(newErrors).length === 0;
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
-      // In a real application, you would send this data to an API
-      const newRecipe = { title, ingredients, steps }; // <-- CHANGED 'instructions' to 'steps'
+      const newRecipe = { title, ingredients, steps };
       console.log('New Recipe Submitted:', newRecipe);
       
-      // Clear form after successful submission
       setTitle('');
       setIngredients('');
-      setSteps(''); // <-- CHANGED 'instructions' to 'steps'
-      setValidationErrors({});
+      setSteps('');
+      setErrors({}); // <-- CHANGED 'setValidationErrors' to 'setErrors'
 
       alert('Recipe submitted successfully!');
     } else {
@@ -61,9 +59,9 @@ function AddRecipeForm() {
               onChange={(e) => setTitle(e.target.value)}
               className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
             />
-            {validationErrors.title && (
+            {errors.title && ( // <-- CHANGED 'validationErrors' to 'errors'
               <p className="mt-1 text-sm text-red-500">
-                {validationErrors.title}
+                {errors.title}
               </p>
             )}
           </div>
@@ -85,30 +83,30 @@ function AddRecipeForm() {
               onChange={(e) => setIngredients(e.target.value)}
               className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
             ></textarea>
-            {validationErrors.ingredients && (
+            {errors.ingredients && ( // <-- CHANGED 'validationErrors' to 'errors'
               <p className="mt-1 text-sm text-red-500">
-                {validationErrors.ingredients}
+                {errors.ingredients}
               </p>
             )}
           </div>
 
           <div>
             <label
-              htmlFor="steps" // <-- CHANGED 'instructions' to 'steps'
+              htmlFor="steps"
               className="block text-lg font-medium text-gray-700"
             >
               Preparation Steps
             </label>
             <textarea
-              id="steps" // <-- CHANGED 'instructions' to 'steps'
+              id="steps"
               rows="6"
-              value={steps} // <-- CHANGED 'instructions' to 'steps'
-              onChange={(e) => setSteps(e.target.value)} // <-- CHANGED 'instructions' to 'steps'
+              value={steps}
+              onChange={(e) => setSteps(e.target.value)}
               className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
             ></textarea>
-            {validationErrors.steps && ( // <-- CHANGED 'instructions' to 'steps'
+            {errors.steps && ( // <-- CHANGED 'validationErrors' to 'errors'
               <p className="mt-1 text-sm text-red-500">
-                {validationErrors.steps}
+                {errors.steps}
               </p>
             )}
           </div>
