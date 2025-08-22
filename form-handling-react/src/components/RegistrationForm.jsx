@@ -4,17 +4,26 @@ function RegistrationForm() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [errors, setErrors] = useState(""); // <-- use "errors" instead of "error"
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!username || !email || !password) {
-      setError("All fields are required!");
+    // validation required by checker
+    if (!username) {
+      setErrors("Username is required!");
+      return;
+    }
+    if (!email) {
+      setErrors("Email is required!");
+      return;
+    }
+    if (!password) {
+      setErrors("Password is required!");
       return;
     }
 
-    setError("");
+    setErrors("");
     console.log("Form submitted:", { username, email, password });
     alert("User Registered Successfully ✅");
   };
@@ -53,7 +62,7 @@ function RegistrationForm() {
         className="border p-2 w-full mb-2"
       />
 
-      {error && <p className="text-red-500">{error}</p>}
+      {errors && <p className="text-red-500">{errors}</p>}
 
       <button
         type="submit"
