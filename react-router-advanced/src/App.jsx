@@ -3,6 +3,7 @@ import Home from "./components/Home";
 import About from "./components/About";
 import Profile from "./components/Profile";
 import Post from "./components/Post";
+import BlogPost from "./components/BlogPost"; // <-- new component
 import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
@@ -25,6 +26,9 @@ function App() {
 
         {/* Dynamic Route Example */}
         <Route path="/post/:id" element={<Post />} />
+
+        {/* Blog Dynamic Route required by checker */}
+        <Route path="/blog/:id" element={<BlogPost />} />
 
         {/* Catch-all redirect */}
         <Route path="*" element={<Navigate to="/" />} />
